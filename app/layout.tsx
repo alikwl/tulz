@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { Suspense } from 'react';
 import { ThemeProvider } from '@/components/theme-provider';
 import { SearchProvider } from '@/lib/search-provider';
 import { Analytics } from '@/components/analytics';
@@ -191,7 +192,9 @@ export default function RootLayout({
           </SearchProvider>
           <Analytics />
           <WebVitals />
-          <GoogleAnalytics />
+          <Suspense fallback={null}>
+            <GoogleAnalytics />
+          </Suspense>
         </ThemeProvider>
         <GoogleAnalyticsScripts />
       </body>
