@@ -5,6 +5,8 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { SearchProvider } from '@/lib/search-provider';
 import { Analytics } from '@/components/analytics';
 import { WebVitals } from '@/components/web-vitals';
+import { GoogleAnalytics } from '@/components/google-analytics';
+import { GoogleAnalyticsScripts } from '@/components/google-analytics-scripts';
 import { Toaster } from '@/components/ui/toaster';
 
 const inter = Inter({
@@ -189,7 +191,9 @@ export default function RootLayout({
           </SearchProvider>
           <Analytics />
           <WebVitals />
+          <GoogleAnalytics />
         </ThemeProvider>
+        <GoogleAnalyticsScripts />
       </body>
     </html>
   );
