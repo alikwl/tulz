@@ -18,6 +18,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 0.9,
     },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/about`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/search`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
   ]
 
   const categoryRoutes: MetadataRoute.Sitemap = categories.map((category) => ({
@@ -27,20 +51,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  const implementedTools = [
-    "/tools/developer-tools/json-formatter",
-    "/tools/developer-tools/base64-encoder-decoder",
-    "/tools/image-tools/image-compressor",
-    "/tools/text-tools/word-counter",
-    "/tools/productivity/color-picker",
-    "/tools/productivity/unit-converter",
-  ]
-
-  const toolRoutes: MetadataRoute.Sitemap = implementedTools.map((toolPath) => ({
-    url: `${baseUrl}${toolPath}`,
+  // Include ALL tool pages
+  const toolRoutes: MetadataRoute.Sitemap = tools.map((tool) => ({
+    url: `${baseUrl}${tool.href}`,
     lastModified: currentDate,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
+    changeFrequency: "weekly" as const,
+    priority: tool.popular ? 0.9 : 0.7,
   }))
 
   return [...routes, ...categoryRoutes, ...toolRoutes]

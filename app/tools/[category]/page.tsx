@@ -39,11 +39,46 @@ import {
   type ToolCategory,
 } from "@/lib/tools-data"
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
 
 interface CategoryPageProps {
   params: {
     category: string
+  }
+}
+
+export async function generateStaticParams() {
+  return categories.map((category) => ({
+    category: categoryMetadata[category].slug,
+  }))
+}
+
+export async function generateMetadata({ params }: CategoryPageProps) {
+  const category = getCategoryFromSlug(params.category)
+
+  if (!category) {
+    return {
+      title: 'Category Not Found | Tulz.net',
+    }
+  }
+
+  const metadata = categoryMetadata[category]
+  const categoryTools = getToolsByCategory(category)
+
+  return {
+    title: `${metadata.name} - Free Online ${metadata.name} | Tulz.net`,
+    description: metadata.description,
+    openGraph: {
+      title: `${metadata.name} | Tulz.net`,
+      description: metadata.description,
+      type: 'website',
+    },
+    alternates: {
+      canonical: `/tools/${metadata.slug}`,
+    },
+    other: {
+      'tool-count': categoryTools.length.toString(),
+    },
   }
 }
 
