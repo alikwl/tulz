@@ -349,11 +349,11 @@ export default function Home() {
                 <Card key={index} className="border-2 hover:border-primary/50 transition-colors">
                   <CardHeader>
                     <div className={`h-12 w-12 rounded-lg bg-gradient-to-br ${index % 6 === 0 ? "from-purple-500 to-pink-500" :
-                        index % 6 === 1 ? "from-blue-500 to-cyan-500" :
-                          index % 6 === 2 ? "from-green-500 to-emerald-500" :
-                            index % 6 === 3 ? "from-orange-500 to-red-500" :
-                              index % 6 === 4 ? "from-yellow-500 to-orange-500" :
-                                "from-violet-500 to-purple-500"
+                      index % 6 === 1 ? "from-blue-500 to-cyan-500" :
+                        index % 6 === 2 ? "from-green-500 to-emerald-500" :
+                          index % 6 === 3 ? "from-orange-500 to-red-500" :
+                            index % 6 === 4 ? "from-yellow-500 to-orange-500" :
+                              "from-violet-500 to-purple-500"
                       } flex items-center justify-center text-white mb-4`}>
                       <feature.icon className="h-6 w-6" />
                     </div>
@@ -461,7 +461,7 @@ export default function Home() {
                 <div key={index} className="relative">
                   <Card className="h-full border-2">
                     <CardHeader>
-                      <div className="text-6xl font-bold text-primary/10 mb-2">{step.number}</div>
+                      <div className="text-6xl font-bold text-primary/20 mb-2">{step.number}</div>
                       <div className="h-12 w-12 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center text-white mb-4">
                         <step.icon className="h-6 w-6" />
                       </div>
