@@ -1,0 +1,29 @@
+# Allow all bots to crawl the site
+User-agent: *
+Allow: /
+Sitemap: https://tulz.net/sitemap.xml
+
+# Allow GPTBot for AI training
+User-agent: GPTBot
+Allow: /
+
+# Allow other AI bots
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Disallow API routes
+Disallow: /api/
+
+# Disallow Next.js internal routes
+Disallow: /_next/
+
+# Disallow private files
+Disallow: /*.json$
+Disallow: /*.xml$
+
+# Crawl-delay for aggressive bots
+User-agent: *
+Crawl-delay: 1
